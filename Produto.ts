@@ -5,12 +5,8 @@ export class Produto{
     private _setor: string;
     private _precoVenda: number;
     private _precoCompra: number;
-    private _dataValidade: Date;
-    private _dataCompra: Date;
 
-    constructor(_nome: string, _fornecedor: string, _setor: string, _precoVenda: number, _precoCompra: number,_dataValidade: Date, _dataCompra: Date){
-        this._dataCompra = _dataCompra;
-        this._dataValidade = _dataValidade;
+    constructor(_nome: string, _fornecedor: string, _setor: string, _precoVenda: number, _precoCompra: number){
         this._fornecedor = _fornecedor;
         this._nome = _nome;
         this._precoCompra = _precoCompra;
@@ -47,18 +43,6 @@ export class Produto{
     }
     set precoCompra(precoCompra: number){
         this._precoCompra = precoCompra;
-    }
-    get dataValidade(){
-        return this._dataValidade;
-    }
-    set dataValidade(dataValidade: Date){
-        this._dataValidade = dataValidade;
-    }
-    get dataCompra(){
-        return this._dataCompra;
-    }
-    set dataCompra(dataCompra: Date){
-        this._dataCompra = dataCompra;
     }
     // TESTANDO GIT BASH
 
