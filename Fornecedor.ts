@@ -1,21 +1,21 @@
-
+import { Produto } from "./Produto";
 
 export class Fornecedor {
     private _nome: string;
     private _email: string;
-    private _contato: number;
-    private _tiposProduto: string [];
-    private _quantia: number;
-    private _Iniciocontrato: Date; // como se fosse o início da parceria entre os negócios
+    //private _contato: number; caso seja interessante ter o contato telefone do fornecedor
+    private _tiposProduto: Produto[];
+    //private _quantia: number; aqui a quantidade vai vir direto da classe Produto do matuto
+    //private _Iniciocontrato: Date; // como se fosse o início da parceria entre os negócios
 
-    constructor(_nome: string, _email: string, _contato: number, _tiposProduto: string [], _quantia: number, _Iniciocontrato: Date) {
+    constructor(_nome: string, _email: string, _contato: number, _tiposProduto: Produto[], _quantia: number, _Iniciocontrato: Date) {
 
         this._nome = _nome;
         this._email = _email;
-        this._contato = _contato;
-        this._quantia = _quantia;
+    //  this._contato = _contato;
+    //  this._quantia = _quantia;
         this._tiposProduto = _tiposProduto;
-        this._Iniciocontrato = _Iniciocontrato;
+    //  this._Iniciocontrato = _Iniciocontrato;
 
     }
 
@@ -35,23 +35,23 @@ export class Fornecedor {
         this._email = email;
     }
 
-    get contato(){
+   /* get contato(){
         return this._contato;
-    }
+
 
     set contato(contato: number){
         this._contato = contato;
-    }
+    } */
 
     get tiposProduto(){
         return this._tiposProduto;
     }
 
-    set tiposProduto(tiposProduto: string []){
+    set tiposProduto(tiposProduto: Produto[]){
         this._tiposProduto = tiposProduto;
     }
 
-    get quantia(){
+   /* get quantia(){
         return this._quantia;
     }
 
@@ -65,7 +65,7 @@ export class Fornecedor {
 
     set Iniciocontrato(Iniciocontrato: Date){
         this._Iniciocontrato = Iniciocontrato;
-    }
+    }*/ 
 
 
 }
