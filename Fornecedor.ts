@@ -8,7 +8,7 @@ export class Fornecedor {
     //private _quantia: number; aqui a quantidade vai vir direto da classe Produto do matuto
     //private _Iniciocontrato: Date; // como se fosse o início da parceria entre os negócios
 
-    constructor(_nome: string, _email: string, _contato: number, _tiposProduto: Produto[], _quantia: number, _Iniciocontrato: Date) {
+    constructor(_nome: string, _email: string, _tiposProduto: Produto[]) {
 
         this._nome = _nome;
         this._email = _email;

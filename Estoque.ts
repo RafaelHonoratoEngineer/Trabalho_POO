@@ -2,16 +2,13 @@
 import { Produto } from "./Produto";
 
 export class Estoque{
-    private _idProduto : string;
-    private _quantidade : number;
+    private _produtos: Produto [];
 
-
-    constructor(_idProduto: string, _quantidade: number){
-        this._idProduto = _idProduto;
-        this._quantidade = _quantidade;
+    constructor(_produtos: Produto []){
+        this._produtos = _produtos;
 
     }
-    get idProduto(){
+   /* get idProduto(){
         return this.idProduto;
     }
     set idProduto(idProduto: string){
@@ -22,15 +19,22 @@ export class Estoque{
     }
     set quantidade(quantidade: number){
         this.quantidade = quantidade;
+    } */
+    get produto(){
+        return this._produtos;
     }
 
-    adicionarProduto(quantidade: number) {
-        this._quantidade += quantidade;
+    adicionarProduto(produtos: Produto []) {
+        this._produtos.push(...produtos);
     }
 
-    removerProduto(quantidade: number) {
-        if (this._quantidade >= quantidade) {
-            this._quantidade -= quantidade;
-        }         
+    removerProduto(produto: Produto) {
+        var index = this._produtos.indexOf(produto);
+
+        if(index != -1){
+            this._produtos.splice(index);
+            console.log(`O produto [${produto}] foi removido com sucesso!`);
+        }
+                
     }
 }

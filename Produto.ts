@@ -2,17 +2,19 @@ import { Fornecedor } from "./Fornecedor";
 
 export class Produto{
     private _nome: string;
-    private _fornecedor: Fornecedor;    // dps atualizar para type: Fornecedor
+    private _fornecedor: string;    
     private _setor: string;
     private _precoVenda: number;
     private _precoCompra: number;
+    private _qntd: number;
 
-    constructor(_nome: string, _fornecedor: Fornecedor, _setor: string, _precoVenda: number, _precoCompra: number){
+    constructor(_nome: string, _fornecedor: string, _setor: string, _precoVenda: number, _precoCompra: number, _qntd: number){
         this._fornecedor = _fornecedor;
         this._nome = _nome;
         this._precoCompra = _precoCompra;
         this._precoVenda = _precoVenda;
         this._setor = _setor;
+        this._qntd = _qntd;
     }
 
     get nome(){
@@ -24,7 +26,7 @@ export class Produto{
     get fornecedores(){
         return this._fornecedor;
     }
-    set fornecedor(fornecedor: Fornecedor){
+    set fornecedor(fornecedor: string){
         this._fornecedor = fornecedor;
     }
     get setor(){
@@ -45,8 +47,12 @@ export class Produto{
     set precoCompra(precoCompra: number){
         this._precoCompra = precoCompra;
     }
-    // TESTANDO GIT BASH
-
+    get qntd(){
+        return this._qntd;
+    }
+    set qntd(qntd: number){
+        this._qntd = qntd;
+    }
 
 }
 
