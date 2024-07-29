@@ -1,13 +1,14 @@
 import { Fornecedor } from "./Fornecedor";
+
 export class Produto{
     private _nome: string;
-    private _fornecedores: Fornecedor[];    // dps atualizar para type: Fornecedor
+    private _fornecedor: Fornecedor;    // dps atualizar para type: Fornecedor
     private _setor: string;
     private _precoVenda: number;
     private _precoCompra: number;
 
-    constructor(_nome: string, _fornecedores: Fornecedor[], _setor: string, _precoVenda: number, _precoCompra: number){
-        this._fornecedores = _fornecedores;
+    constructor(_nome: string, _fornecedor: Fornecedor, _setor: string, _precoVenda: number, _precoCompra: number){
+        this._fornecedor = _fornecedor;
         this._nome = _nome;
         this._precoCompra = _precoCompra;
         this._precoVenda = _precoVenda;
@@ -21,10 +22,10 @@ export class Produto{
         this._nome = nome;
     }
     get fornecedores(){
-        return this._fornecedores;
+        return this._fornecedor;
     }
-    set fornecedor(fornecedores: Fornecedor[]){
-        this._fornecedores = fornecedores;
+    set fornecedor(fornecedor: Fornecedor){
+        this._fornecedor = fornecedor;
     }
     get setor(){
         return this._setor;
