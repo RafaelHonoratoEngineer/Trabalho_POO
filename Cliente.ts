@@ -1,6 +1,6 @@
 import { Pessoa } from './Pessoa';
 
-export class Vendedor {
+export class Cliente{
 
     private _cliente: Pessoa;
     

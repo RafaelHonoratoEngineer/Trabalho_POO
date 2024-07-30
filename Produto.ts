@@ -59,13 +59,12 @@ export class Produto{
     set idProduto(idProduto: string){
         this._idProduto = idProduto;
     }
-
     exibirProduto(){
         console.log('======================================================')
         console.log(`NOME DO PRODUTO: ${this._nome}`);
         console.log(`ID DO PRODUTO: ${this._idProduto}`);
         console.log(`QUANTIDADE EM ESTOQUE: ${this._qntd}`);
-        console.log(`FORNECEDOR: ${this._fornecedor}`);
+        console.log(`NOME DO FORNECEDOR: ${this._fornecedor}`);
         console.log(`SETOR: ${this._setor}`);
         console.log(`PREÇO DE COMPRA: ${this._precoCompra}`);
         console.log(`PRECO DE VENDA: ${this._precoVenda}`);
