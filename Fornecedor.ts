@@ -1,7 +1,7 @@
 //import { Produto } from "./Produto";
 
 export class Fornecedor {
-    private _nome: string;
+    private _nomeFornecedor: string;
     private _email: string;
     private _cnpj: string;
     //private _contato: number; caso seja interessante ter o contato telefone do fornecedor
@@ -9,9 +9,9 @@ export class Fornecedor {
     //private _quantia: number; aqui a quantidade vai vir direto da classe Produto do matuto
     //private _Iniciocontrato: Date; // como se fosse o início da parceria entre os negócios
 
-    constructor(_nome: string, _email: string, _cnpj: string) {
+    constructor(_nomeFornecedor: string, _email: string, _cnpj: string) {
 
-        this._nome = _nome;
+        this._nomeFornecedor = _nomeFornecedor;
         this._email = _email;
         this._cnpj = _cnpj;
     //  this._contato = _contato;
@@ -22,11 +22,11 @@ export class Fornecedor {
     }
 
     get nome(){
-        return this._nome;
+        return this._nomeFornecedor;
     }
 
     set nome(nome: string) {
-        this._nome = nome;
+        this._nomeFornecedor = this._nomeFornecedor;
     }
 
     get email(){
@@ -78,6 +78,4 @@ export class Fornecedor {
 
 
 }
-// capri mama pau 
-//testando caralho
-//novamente pelo terminal
+
