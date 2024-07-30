@@ -71,3 +71,4 @@ export class Fornecedor {
 }
 // capri mama pau 
 //testando caralho
+//novamente pelo terminal
