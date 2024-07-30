@@ -1,3 +1,4 @@
+/*
 import { Fornecedor } from "./Fornecedor";
 import { Produto } from "./Produto";
 import { Estoque } from "./Estoque";
@@ -30,7 +31,7 @@ let frango = new Produto('Coxinha', fornecedores[2], 'Acouge', 10.99, 7.50, 12);
 estoque.adionarProdutos([frango])
 
 console.log(estoque);
-
+*/
 
 
 
