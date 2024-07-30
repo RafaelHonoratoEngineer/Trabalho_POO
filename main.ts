@@ -1,46 +1,37 @@
-//import { Fornecedor } from "./Fornecedor";
+import { Fornecedor } from "./Fornecedor";
 import { Produto } from "./Produto";
 import { Estoque } from "./Estoque";
-import * as fs from 'fs';
 
-let produtos: Produto[] = [];
+let fornecedores: Fornecedor []= [];
+let ype = new Fornecedor('Ype', 'ype@limpeza.com.br', '0001.0002')
+let graosBR = new Fornecedor('Grãos BR LTDA', 'tio_joao_empresa@graos.com.br', '0001.9876')
+let carnesBoiBao = new Fornecedor('Carnes Boi Bão', 'carne.boi.bao@carnesbrasil.com.br', '0001.8989')
+fornecedores.push(ype);
+fornecedores.push(graosBR);
+fornecedores.push(carnesBoiBao); 
 
-const file: string = 'C:\Users\Falcon-R\Documents\Engenharia de Computação\Quarto Semestre\POO\Primeiro Trabalho\Trabalho_POO\produtos_mercado.csv';
+//===================================================//
 
-fs.readFile(file, { encoding: 'utf-8' }, (err, data) => {
-    if (err) throw err;
+let produtos: Produto [] = [];
+let arroz = new Produto('Arroz Tio Urbano 5kg', fornecedores[1], 'Alimentos', 30.50, 19.99, 10);
+let aguaSanitaria = new Produto('Água Sanitária 2L', fornecedores[0], 'Limpeza', 12.75, 7.55, 7);
+let contraFile = new Produto('Contra Filé Kg', fornecedores[2], 'Acougue', 35.99, 29.99, 15);
+produtos.push(arroz);
+produtos.push(aguaSanitaria);
+produtos.push(contraFile);
 
-    const lines: string[] = data.split('\n');
-    lines.shift(); // Remove a linha de cabeçalho
-    let linha: string | undefined = lines.shift();
-
-    while (linha) {
-        let nome: string;
-        let fornecedor: string;
-        let setor: string;
-        let precoVenda: number;
-        let precoCompra: number;
-        let qntd: number;
-
-        const elementosMercado: string[] = linha.trim().split(',');
-
-        nome = elementosMercado[0];
-        fornecedor = elementosMercado[1];
-        setor = elementosMercado[2];
-        precoVenda = Number(elementosMercado[3]);
-        precoCompra = Number(elementosMercado[4]);
-        qntd = Number(elementosMercado[5]);
-        
-        let produto = new Produto(nome, fornecedor, setor, precoVenda, precoCompra, qntd);
-        linha = lines.shift();
-        produtos.push(produto);
-    }
-
-
-});
+//===================================================//
 
 let estoque = new Estoque(produtos);
 
-console.log(produtos);
-console.log("==========================");
+//===================================================//
+
+let frango = new Produto('Coxinha', fornecedores[2], 'Acouge', 10.99, 7.50, 12);
+estoque.adionarProdutos([frango])
+
 console.log(estoque);
+
+
+
+
+

@@ -3,38 +3,46 @@ import { Produto } from "./Produto";
 
 export class Estoque{
     private _produtos: Produto [];
+    private _qtndTotal: number;
+    //private _qntd: number;
 
-    constructor(_produtos: Produto []){
+    constructor(_produtos: Produto[]){
         this._produtos = _produtos;
-
+        this._qtndTotal = 0;
+        this._produtos.forEach(produto => {
+            this._qtndTotal += produto.qntd;
+        })
     }
    /* get idProduto(){
         return this.idProduto;
     }
     set idProduto(idProduto: string){
         this.idProduto = idProduto;
-    }
+    } 
     get quantidade(){
-        return this.quantidade;
+        return this._qntd;
     }
     set quantidade(quantidade: number){
-        this.quantidade = quantidade;
-    } */
+        this._qntd = quantidade;
+    }*/
     get produto(){
         return this._produtos;
     }
-
-    adicionarProduto(produtos: Produto []) {
-        this._produtos.push(...produtos);
-    }
-
-    removerProduto(produto: Produto) {
-        var index = this._produtos.indexOf(produto);
-
-        if(index != -1){
-            this._produtos.splice(index);
-            console.log(`O produto [${produto}] foi removido com sucesso!`);
+    adionarProdutos(produtos: Produto []){
+        if(produtos.length >=1){
+            this._produtos.push(...produtos);
+            this._qtndTotal = 0;
+            this._produtos.forEach(produto => {
+                this._qtndTotal += produto.qntd;
+            })
         }
-                
+        else{
+            console.log('Produtos está vazio!');
+        }
     }
+    get qtndTotal(){
+        return this._qtndTotal;
+    }
+
+    
 }
