@@ -5,17 +5,18 @@ export class Produto{
     private _idProduto: string
     private _fornecedor: Fornecedor;    
     private _setor: string;
-//    private _precoVenda: number;
-//    private _precoCompra: number;
+    private _precoCompra: number;
+    private _precoVenda: number;
     private _qntd: number;
 
-    constructor(_nome: string, _fornecedor: Fornecedor, _setor: string, _precoVenda: number, _precoCompra: number, _qntd: number){
+    constructor(_nome: string, _idProduto: string, _fornecedor: Fornecedor, _setor: string,  _precoCompra: number, _qntd: number){
         this._fornecedor = _fornecedor;
         this._nome = _nome;
-       // this._precoCompra = _precoCompra;
-       // this._precoVenda = _precoVenda;
+        this._precoCompra = _precoCompra;
+        this._precoVenda = this.precoCompra + (this.precoCompra*20);
         this._setor = _setor;
         this._qntd = _qntd;
+        this._idProduto = _idProduto
     }
 
     get nome(){
@@ -36,18 +37,16 @@ export class Produto{
     set setor(setor: string){
         this._setor = setor;
     }
-    /*get precoVenda(){
+    get precoVenda(){
         return this._precoVenda;
-    }
-    set precoVenda(precoVenda: number){
-        this._precoVenda = precoVenda;
     }
     get precoCompra(){
         return this._precoCompra;
     }
     set precoCompra(precoCompra: number){
         this._precoCompra = precoCompra;
-    }*/
+        this._precoVenda = precoCompra + (precoCompra*0.20);
+    }
     get qntd(){
         return this._qntd;
     }
@@ -61,5 +60,16 @@ export class Produto{
         this._idProduto = idProduto;
     }
 
+    exibirProduto(){
+        console.log('======================================================')
+        console.log(`NOME DO PRODUTO: ${this._nome}`);
+        console.log(`ID DO PRODUTO: ${this._idProduto}`);
+        console.log(`QUANTIDADE EM ESTOQUE: ${this._qntd}`);
+        console.log(`FORNECEDOR: ${this._fornecedor}`);
+        console.log(`SETOR: ${this._setor}`);
+        console.log(`PREÇO DE COMPRA: ${this._precoCompra}`);
+        console.log(`PRECO DE VENDA: ${this._precoVenda}`);
+        console.log('======================================================\n')
+    }
 }
 
