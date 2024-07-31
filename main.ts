@@ -48,16 +48,37 @@ clientes.push(malaquias);
 clientes.push(Renan); 
 
 
-//===================================================//
+//===================================================//arroz.set = arroz.get - venda
+//VENDAS    
+
+let vendas: Venda []= [];
+
+let venda1 = new Venda([], 'PIX', vendedores[1], clientes[1]);
+
+
+console.log(venda1.venderProduto(arroz, 3)); 
+// console.log(venda1.venderProduto(aguaSanitaria, 2));
+// novaVenda()
+
+//    Criar uma nova venda
+//    const venda = new Venda(
+//     [produto1, produto2, produto3],
+//     'PIX', // Forma de pagamento
+//     new Date(), // Data da venda
+//     vendedor,
+//     cliente
+// );
+
 //===================================================//
 //===================================================//
 
+// console.log(arroz.exibirProduto());
+// console.log(fabricio.exibirVendedor());
+// console.log(Renan.exibirCliente());
+
+console.log(venda1.efetuarVenda());
+
 console.log(arroz.exibirProduto());
-console.log(fabricio.exibirVendedor());
-console.log(Renan.exibirCliente());
-// let frango = new Produto('Coxinha', "007", fornecedores[2], 'Acouge', 7.50, 12);
-// estoque.adionarProdutos([frango]);
-// console.log(frango);
 
 
 
