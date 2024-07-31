@@ -5,7 +5,7 @@ export class Vendedor {
     private _vendedor: Pessoa;
     
     constructor(nome: string, cpf: string, email: string) {
-        this._vendedor = this._vendedor;
+        this._vendedor = new Pessoa(nome, cpf, email);
     }
    
     get nome(): string {
@@ -30,5 +30,10 @@ export class Vendedor {
 
     set email(email: string) {
         this._vendedor.email = email;
+    }
+    exibirVendedor(): void {
+        console.log('======================================================')
+        console.log(`Vendedor - Nome: ${this.nome}, CPF: ${this.cpf}, Email: ${this.email}`);
+        console.log('======================================================')
     }
 }

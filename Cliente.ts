@@ -5,8 +5,7 @@ export class Cliente{
     private _cliente: Pessoa;
     
     constructor(nome: string, cpf: string, email: string) {
-        this._cliente = this._cliente;
-    }
+        this._cliente = new Pessoa(nome, cpf, email);    }
    
     get nome(): string {
         return this._cliente.nome;
@@ -30,5 +29,10 @@ export class Cliente{
 
     set email(email: string) {
         this._cliente.email = email;
+    }
+    exibirCliente(): void {
+        console.log('======================================================')
+        console.log(`Cliente - Nome: ${this.nome}, CPF: ${this.cpf}, Email: ${this.email}`);
+        console.log('======================================================')
     }
 }

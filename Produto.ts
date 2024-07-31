@@ -13,7 +13,7 @@ export class Produto{
         this._fornecedor = _fornecedor;
         this._nome = _nome;
         this._precoCompra = _precoCompra;
-        this._precoVenda = this.precoCompra + (this.precoCompra*20);
+        this._precoVenda = this.precoCompra + (this.precoCompra*0.20);
         this._setor = _setor;
         this._qntd = _qntd;
         this._idProduto = _idProduto
@@ -64,7 +64,7 @@ export class Produto{
         console.log(`NOME DO PRODUTO: ${this._nome}`);
         console.log(`ID DO PRODUTO: ${this._idProduto}`);
         console.log(`QUANTIDADE EM ESTOQUE: ${this._qntd}`);
-        console.log(`NOME DO FORNECEDOR: ${this._fornecedor}`);
+        console.log(`NOME DO FORNECEDOR: ${this._fornecedor.nome}`);
         console.log(`SETOR: ${this._setor}`);
         console.log(`PREÇO DE COMPRA: ${this._precoCompra}`);
         console.log(`PRECO DE VENDA: ${this._precoVenda}`);
