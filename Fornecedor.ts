@@ -9,7 +9,6 @@ export class Fornecedor {
         this._nomeFornecedor = _nomeFornecedor;
         this._email = _email;
         this._cnpj = _cnpj;
-
     }
 
     get nome(){
@@ -34,7 +33,8 @@ export class Fornecedor {
     set cnpj(cnpj: string){
         this._cnpj = cnpj;
     }
-
-    
+    exibirFornecedor(): void {
+        console.log(`fornecedor - Nome: ${this.nome}, CPF: ${this.cnpj}, Email: ${this.email}`);
+    }
 }
 

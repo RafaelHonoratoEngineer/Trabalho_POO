@@ -31,8 +31,6 @@ export class Cliente{
         this._cliente.email = email;
     }
     exibirCliente(): void {
-        console.log('======================================================')
         console.log(`Cliente - Nome: ${this.nome}, CPF: ${this.cpf}, Email: ${this.email}`);
-        console.log('======================================================')
     }
 }

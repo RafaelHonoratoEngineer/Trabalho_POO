@@ -60,15 +60,7 @@ export class Produto{
         this._idProduto = idProduto;
     }
     exibirProduto(){
-        console.log('======================================================')
-        console.log(`NOME DO PRODUTO: ${this._nome}`);
-        console.log(`ID DO PRODUTO: ${this._idProduto}`);
-        console.log(`QUANTIDADE EM ESTOQUE: ${this._qntd}`);
-        console.log(`NOME DO FORNECEDOR: ${this._fornecedor.nome}`);
-        console.log(`SETOR: ${this._setor}`);
-        console.log(`PREÇO DE COMPRA: ${this._precoCompra}`);
-        console.log(`PRECO DE VENDA: ${this._precoVenda}`);
-        console.log('======================================================\n')
+        return `NOME DO PRODUTO: ${this._nome}\nQUANTIDADE EM ESTOQUE: ${this._qntd}\nID DO PRODUTO: ${this._idProduto}\nSETOR: ${this._setor}\nPREÇO DE COMPRA: ${this._precoCompra}\nPRECO DE VENDA: ${this._precoVenda}\nNOME DO FORNECEDOR: ${this._fornecedor.nome}\n======================================================`;
     }
 }
 
