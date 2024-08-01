@@ -70,3 +70,10 @@ console.log(contraFile.exibirProduto());
 console.log("VENDAS");
 console.log('======================================================')
 venda1.venderProduto();
+
+console.log('======================================================')
+
+console.log("PRODUTOS: ");
+console.log(arroz.exibirProduto());
+console.log(aguaSanitaria.exibirProduto());
+console.log(contraFile.exibirProduto());
