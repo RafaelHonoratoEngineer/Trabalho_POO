@@ -4,23 +4,20 @@ import { Cliente } from "./Cliente";
 
 export class Venda {
     private _produtos: Produto[];
+    private _quantidades: number[];
     private _formaPagamento: string;
     private _preco: number;
     private _dataVenda: Date;
     private _vendedor: Vendedor;
     private _cliente: Cliente;
 
-    constructor (
-        produtos: Produto[],
-        formaPagamento: string,
-        vendedor: Vendedor,
-        cliente: Cliente
-    ) {
-        this._produtos = produtos;
-        this._formaPagamento = formaPagamento;
+    constructor (_produtos: Produto[], _quantidades: number[], _formaPagamento: string, _vendedor: Vendedor, _cliente: Cliente){
+        this._produtos = _produtos;
+        this._formaPagamento = _formaPagamento;
         this._dataVenda = new Date();
-        this._vendedor = vendedor;
-        this._cliente = cliente;
+        this._vendedor = _vendedor;
+        this._cliente = _cliente;
+        this._quantidades = _quantidades;
         this._preco = 0;
     }
 
@@ -30,6 +27,13 @@ export class Venda {
 
     set produtos(produtos: Produto[]) {
         this._produtos = produtos;
+    }
+    get quantidades(){
+        return this._quantidades;
+    }
+
+    set quantidades(quantidades: number[]) {
+        this._quantidades = quantidades;
     }
 
     get formaPagamento() {
@@ -44,8 +48,17 @@ export class Venda {
         return this._preco;
     }
 
-    set preco(preco: number) {
-        this._preco = preco;
+    precoVenda(){
+        for(let i = 0; i < this._produtos.length; i++){
+            if(this._quantidades[i] > this._produtos[i].qntd){
+                return `Erro! Quantidade de ${this._produtos[i].nome} indisponível. Estoque atual: ${this._produtos[i].qntd}.`
+            }
+            else{
+                this._preco += this._produtos[i].precoVenda*this._quantidades[i] 
+                return this._preco;     
+            }
+        }
+
     }
 
     get dataVenda() {
@@ -56,7 +69,7 @@ export class Venda {
         this._dataVenda = dataVenda;
     }
 
-    get vendedor() {
+    get vendedor(){
         return this._vendedor;
     }
 
@@ -74,26 +87,36 @@ export class Venda {
 
 
 
-    venderProduto(produto: Produto, quantidade: number): string {
-        if (produto.qntd < quantidade) {
-            return `Quantidade de ${produto.nome} indisponível. Estoque atual: ${produto.qntd}.`;
-        } else {
-            // Atualiza o estoque do produto
-            produto.qntd -= quantidade;
+    venderProduto(){
+        for(let i = 0; i < this._produtos.length; i++){
+            if(this._produtos[i].qntd < this._quantidades[i]){
+                console.log('======================================================')
+                return `Erro! Quantidade de ${this._produtos[i].nome} indisponível. Estoque atual: ${this._produtos[i].qntd}.`;
+            } 
+            else{
+                // Atualiza o estoque do produto
 
-            // Calcula o valor da venda para este produto
-            const valorVenda = produto.precoVenda * quantidade;
-            this._preco += valorVenda;
-            produto.qntd -= quantidade
+                this._produtos[i].qntd -= this._quantidades[i];
+    
+                // Calcula o valor da venda para este produto
+                /*const valorVenda = produto.precoVenda * quantidade;
+                this._preco += valorVenda;
+                produto.qntd -= quantidade*/
+    
+                // Adiciona o produto ao preço total da venda
 
-            // Adiciona o produto ao preço total da venda
-          
-
-            return `Venda de ${quantidade} unidade(s) do produto ${produto.nome}. Valor total: R$${valorVenda.toFixed(2)}. valor restante: ${produto.qntd}`;
+            }
         }
+        for(let i = 0; i < this._produtos.length; i++){
+            console.log('======================================================')
+            console.log(`VENDA REALIZADA!`)
+            console.log(`PRODUTO: ${this._produtos[i].nome} || QUANTIDADE: ${this._quantidades[i]} || VALOR: R$${this._produtos[i].precoVenda*this._quantidades[i]}`);
+            console.log('======================================================')
+
+        }
+
+        
+        //return `Venda de ${quantidade} unidade(s) do produto ${produto.nome}. Valor total: R$${valorVenda.toFixed(2)}. valor restante: ${produto.qntd}`;
     }
 
-    // efetuarVenda(): string {
-    //     return `Venda efetuada para ${this._cliente.nome}. Total: R$${this._preco.toFixed(2)}.`;
-    // }
 }

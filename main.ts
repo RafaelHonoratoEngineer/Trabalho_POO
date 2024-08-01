@@ -53,10 +53,16 @@ clientes.push(Renan);
 
 let vendas: Venda []= [];
 
-let venda1 = new Venda([], 'PIX', vendedores[1], clientes[1]);
+let venda1 = new Venda([arroz, contraFile], [4, 3], 'PIX', vendedores[1], clientes[1]);
+vendas.push(venda1);
 
+venda1.venderProduto();
 
-console.log(venda1.venderProduto(arroz, 3)); 
+console.log(arroz.exibirProduto());
+
+console.log(malaquias.exibirCliente())
+
+//console.log(venda1.venderProduto(arroz, 3)); 
 // console.log(venda1.venderProduto(aguaSanitaria, 2));
 // novaVenda()
 
@@ -76,9 +82,9 @@ console.log(venda1.venderProduto(arroz, 3));
 // console.log(fabricio.exibirVendedor());
 // console.log(Renan.exibirCliente());
 
-console.log(venda1.efetuarVenda());
+/*console.log(venda1.efetuarVenda());
 
-console.log(arroz.exibirProduto());
+console.log(arroz.exibirProduto());*/
 
 
 
