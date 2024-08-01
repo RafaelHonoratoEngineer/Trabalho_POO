@@ -7,6 +7,7 @@ export class Venda {
     private _quantidades: number[];
     private _formaPagamento: string;
     private _preco: number;
+    private _lucro: number;
     private _dataVenda: Date;
     private _vendedor: Vendedor;
     private _cliente: Cliente;
@@ -19,6 +20,7 @@ export class Venda {
         this._cliente = _cliente;
         this._quantidades = _quantidades;
         this._preco = 0;
+        this._lucro = 0;
     }
 
     get produtos() {
@@ -51,16 +53,22 @@ export class Venda {
     precoVenda(){
         for(let i = 0; i < this._produtos.length; i++){
             if(this._quantidades[i] > this._produtos[i].qntd){
-                return `Erro! Quantidade de ${this._produtos[i].nome} indisponível. Estoque atual: ${this._produtos[i].qntd}.`
+                return `Erro! Quantidade de ${this._produtos[i].nome} indisponível. Estoque atual: ${this._produtos[i].qntd}.`;
             }
             else{
-                this._preco += this._produtos[i].precoVenda*this._quantidades[i] 
-                return this._preco;     
+                this._preco += this._produtos[i].precoVenda*this._quantidades[i];
+                this._lucro += (this._produtos[i].precoVenda - this._produtos[i].precoCompra)*this._quantidades[i];
+                return this._preco; 
+            
             }
         }
 
     }
 
+    get lucro(){
+        return this._lucro;
+    }
+    
     get dataVenda() {
         return this._dataVenda;
     }
