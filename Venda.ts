@@ -27,8 +27,19 @@ export class Venda {
         return this._produtos;
     }
 
-    set produtos(produtos: Produto[]) {
-        this._produtos = produtos;
+    adicionarProdutos(produtos: Produto[]){
+        this._produtos.push(...produtos);
+    }
+
+    removerProdutos(produto: Produto){
+        let index = this._produtos.indexOf(produto);
+        
+        if(index != -1){
+            this._produtos.splice(index, 1);
+        }
+        else{
+            console.log("O produto informado não exite!");
+        }
     }
     get quantidades(){
         return this._quantidades;
