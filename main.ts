@@ -97,7 +97,18 @@ try {
     } else {
         console.error("Ocorreu um erro inesperado.");
     }
+
 }
+
+try {
+    
+    const cliente = new Cliente("Rafael Honorato", "12345678", "rafael.honorato@gmail.com");
+    cliente.exibirPessoa(); 
+} catch (error: any) {
+    
+    console.error("Erro ao criar cliente:", error.message); 
+}
+
 
 // interface
 estoque.imprimirDados();

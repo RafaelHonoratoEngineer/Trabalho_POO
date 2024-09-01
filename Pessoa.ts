@@ -34,4 +34,5 @@ export abstract class Pessoa {
     }
 
     abstract exibirPessoa(): void;
+
 }
