@@ -4,6 +4,7 @@ import { Pessoa } from "./Pessoa";
 import { Cliente } from "./Cliente";
 import { Vendedor } from "./Vendedor";
 import { Venda } from "./Venda";
+import { Estoque } from "./Estoque";
 
 //===================================================//
 //BACKLOG 1 - fornecedores
@@ -32,9 +33,9 @@ produtos.push(contraFile);
 
 
 let vendedores: Vendedor [] = [];
-let fabricio = new Vendedor('fabricio', "7894613012", 'fabricio@gmail.com');
-let guilherme = new Vendedor('guilherme', "5743664185", 'varela@gmail.com');
-let rafael = new Vendedor('rafael', "7885764185", 'rafael@gmail.com');
+let fabricio = new Vendedor('0001', 'fabricio', "7894613012", 'fabricio@gmail.com');
+let guilherme = new Vendedor('0002', 'guilherme', "5743664185", 'varela@gmail.com');
+let rafael = new Vendedor('0003', 'rafael', "7885764185", 'rafael@gmail.com');
 vendedores.push(fabricio);
 vendedores.push(guilherme);
 vendedores.push(rafael);
@@ -59,21 +60,28 @@ let venda1 = new Venda([arroz, contraFile], [4, 3], vendedores[1], clientes[1]);
 vendas.push(venda1);
 
 //===================================================//
+//BACKLOG 5 - realizar vendas
+let estoque = new Estoque(produtos);
+
+//===================================================//
+
 //BACKLOG 6 - testar funcionalidade de produtos e venda
 
-console.log("PRODUTOS: ");
-console.log(arroz.exibirProduto());
-console.log(aguaSanitaria.exibirProduto());
-console.log(contraFile.exibirProduto());
+// console.log("PRODUTOS: ");
+// console.log(arroz.exibirProduto());
+// console.log(aguaSanitaria.exibirProduto());
+// console.log(contraFile.exibirProduto());
 
 
-console.log("VENDAS");
-console.log('======================================================')
-venda1.venderProduto();
+// console.log("VENDAS");
+// console.log('======================================================')
+// venda1.venderProduto();
 
-console.log('======================================================')
+// console.log('======================================================')
 
-console.log("PRODUTOS: ");
-console.log(arroz.exibirProduto());
-console.log(aguaSanitaria.exibirProduto());
-console.log(contraFile.exibirProduto());
+// console.log("PRODUTOS: ");
+// console.log(arroz.exibirProduto());
+// console.log(aguaSanitaria.exibirProduto());
+// console.log(contraFile.exibirProduto());
+
+estoque.imprimirDados();

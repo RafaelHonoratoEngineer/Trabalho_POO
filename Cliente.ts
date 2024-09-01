@@ -1,36 +1,17 @@
 import { Pessoa } from './Pessoa';
 
-export class Cliente{
+export class Cliente extends Pessoa{
 
-    private _cliente: Pessoa;
-    
-    constructor(nome: string, cpf: string, email: string) {
-        this._cliente = new Pessoa(nome, cpf, email);    }
+    constructor(nome: string, cpf: string, email: string){
+        super(nome, cpf, email);
+    }    
+
+    imprimirDados(): void {
+        console.log('======================================================')
+        console.log(`FICHA DO CLIENTE: ${this.nome}`)
+        console.log(`CPF: ${this.cpf}`)
+        console.log(`EMAIL: ${this.email}`)
+        console.log('======================================================')
+    }
    
-    get nome(): string {
-        return this._cliente.nome;
-    }
-
-    set nome(nome: string) {
-        this._cliente.nome = nome;
-    }
-
-    get cpf(): string {
-        return this._cliente.cpf;
-    }
-
-    set cpf(cpf: string) {
-        this._cliente.cpf = cpf;
-    }
-
-    get email(): string {
-        return this._cliente.email;
-    }
-
-    set email(email: string) {
-        this._cliente.email = email;
-    }
-    exibirCliente(): void {
-        console.log(`Cliente - Nome: ${this.nome}, CPF: ${this.cpf}, Email: ${this.email}`);
-    }
 }

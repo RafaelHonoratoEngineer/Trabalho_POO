@@ -1,4 +1,4 @@
-export class Pessoa {
+export abstract class Pessoa {
     private _nome: string;
     private _cpf: string;
     private _email: string;
@@ -32,4 +32,6 @@ export class Pessoa {
     set email(email: string) {
         this._email = email;
     }
+
+    abstract imprimirDados(): void;
 }

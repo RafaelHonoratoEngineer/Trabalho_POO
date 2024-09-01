@@ -1,39 +1,44 @@
 import { Pessoa } from './Pessoa';
 
-export class Vendedor {
+export class Vendedor extends Pessoa{
 
-    private _vendedor: Pessoa;
+    private _idVEndedor: string;
+    private _dataAdmissao: string
+
+    constructor(nome: string, cpf: string, email: string, idVendedor: string){
+        super(nome, cpf, email);
+        this._idVEndedor = idVendedor;
+        this._dataAdmissao = this.dataContrato();
+    }
     
-    constructor(nome: string, cpf: string, email: string) {
-        this._vendedor = new Pessoa(nome, cpf, email);
+    get idVendedor(){
+        return this._idVEndedor;
     }
-   
-    get nome(): string {
-        return this._vendedor.nome;
+    set idVendedor(idVendedor: string){
+        this._idVEndedor = idVendedor;
     }
-
-    set nome(nome: string) {
-        this._vendedor.nome = nome;
+    get dataAdmissao(){
+        return this._dataAdmissao;
     }
 
-    get cpf(): string {
-        return this._vendedor.cpf;
+    dataContrato(): string{
+        let date = new Date();
+
+        let dia =  String(date.getDate()).padStart(2, '0');
+        let mes = String(date.getMonth() + 1).padStart(2, '0')
+        let ano = String(date.getFullYear);
+
+        let dataContrato = `${dia}/${mes}/${ano}`
+        return dataContrato;
     }
 
-    set cpf(cpf: string) {
-        this._vendedor.cpf = cpf;
-    }
-
-    get email(): string {
-        return this._vendedor.email;
-    }
-
-    set email(email: string) {
-        this._vendedor.email = email;
-    }
-    exibirVendedor(): void {
+    imprimirDados(): void{
         console.log('======================================================')
-        console.log(`Vendedor - Nome: ${this.nome}, CPF: ${this.cpf}, Email: ${this.email}`);
+        console.log(`FICHA DO VENDEDOR: ${this.nome}`)
+        console.log(`CPF: ${this.cpf}`)
+        console.log(`EMAIL: ${this.email}`)
+        console.log(`ID: ${this._idVEndedor}`)
+        console.log(`DATA DE ADMISSÃO: ${this._dataAdmissao}`)
         console.log('======================================================')
     }
 }
