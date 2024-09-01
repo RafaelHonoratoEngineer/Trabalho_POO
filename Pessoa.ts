@@ -33,5 +33,5 @@ export abstract class Pessoa {
         this._email = email;
     }
 
-    abstract imprimirDados(): void;
+    abstract exibirPessoa(): void;
 }

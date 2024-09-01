@@ -1,5 +1,6 @@
 import {Produto} from './Produto' 
 import { IDados } from './IDados';
+import { ProdutoNaoEncontradoError } from './ProdutoError';
 
 export class Estoque implements IDados{
     private _quantidadeTotal: number = 0;
@@ -33,10 +34,14 @@ export class Estoque implements IDados{
     
     public removerProduto(produto: Produto){
             let index = this._Produtos.indexOf(produto);
-            
-            if(index != -1){
-                this._Produtos.splice(index, 1);
+
+            if(index === -1){
+                throw new ProdutoNaoEncontradoError(`Erro! Produto ${produto.nome} não encontrado no estoque.`);
             }
+            
+        //     if(index != -1){
+                this._Produtos.splice(index, 1);
+        //     }
 
             this._quantidadeTotal -= produto.qntd;
             }
