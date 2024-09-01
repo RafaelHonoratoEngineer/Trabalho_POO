@@ -1,6 +1,6 @@
 export abstract class Pessoa {
     private _nome: string;
-    private _cpf: string;
+    public _cpf: string;
     private _email: string;
 
     constructor(_nome: string, _cpf: string, _email: string) {
@@ -34,5 +34,4 @@ export abstract class Pessoa {
     }
 
     abstract exibirPessoa(): void;
-
 }
